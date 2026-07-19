@@ -1616,6 +1616,94 @@ button{font:inherit;border:0;background:none;cursor:none}
   .testi-grid{grid-template-columns:1fr}
   .testi-featured{padding:28px}
 }
+
+/* ══════════════════════════════════════════════
+   FAQ SECTION
+══════════════════════════════════════════════ */
+.sec-faq{padding:132px 0 152px}
+
+/* Two-column layout: heading left, accordion right */
+.faq-layout{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:80px;
+  align-items:start;
+}
+.faq-left{
+  position:sticky;top:calc(var(--nav-h) + 32px);
+  padding-bottom:8px;
+}
+.faq-left .sec-h2{margin-bottom:20px}
+.faq-left .sec-sub{margin-bottom:32px}
+.faq-cta-note{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-d);font-size:.76rem;font-weight:700;
+  letter-spacing:.05em;color:var(--light-muted);
+  padding:14px 18px;border-radius:12px;
+  border:1px solid rgba(10,13,26,.08);
+  background:rgba(10,13,26,.02);
+}
+.faq-cta-note svg{width:16px;height:16px;color:var(--blue);flex-shrink:0}
+
+/* Accordion */
+.faq-list{display:flex;flex-direction:column}
+.faq-item{
+  border-bottom:1px solid rgba(10,13,26,.08);
+}
+.faq-item:first-child{border-top:1px solid rgba(10,13,26,.08)}
+
+.faq-trigger{
+  width:100%;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+  padding:22px 0;
+  background:none;border:none;cursor:pointer;
+  text-align:left;
+  font-family:var(--f-d);font-size:clamp(.96rem,1.3vw,1.08rem);
+  font-weight:700;letter-spacing:-.015em;
+  color:var(--light-text);
+  transition:color .25s var(--ease);
+}
+.faq-trigger:hover{color:var(--blue)}
+.faq-trigger[aria-expanded="true"]{color:var(--blue)}
+
+.faq-icon{
+  width:28px;height:28px;border-radius:8px;flex-shrink:0;
+  display:grid;place-items:center;
+  border:1px solid rgba(10,13,26,.1);
+  background:#fff;
+  transition:background .28s var(--ease),border-color .28s var(--ease),transform .38s var(--ease);
+}
+.faq-icon svg{width:12px;height:12px;stroke:var(--light-text);transition:stroke .25s var(--ease)}
+.faq-trigger:hover .faq-icon,
+.faq-trigger[aria-expanded="true"] .faq-icon{
+  background:var(--blue);border-color:var(--blue);
+}
+.faq-trigger:hover .faq-icon svg,
+.faq-trigger[aria-expanded="true"] .faq-icon svg{stroke:#fff}
+.faq-trigger[aria-expanded="true"] .faq-icon{transform:rotate(45deg)}
+
+.faq-body{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .38s var(--ease);
+}
+.faq-body.open{grid-template-rows:1fr}
+.faq-body-inner{
+  overflow:hidden;
+}
+.faq-answer{
+  padding:0 0 24px 0;
+  color:var(--light-muted);
+  font-size:.97rem;line-height:1.84;
+  max-width:580px;
+}
+.faq-answer a{color:var(--blue);text-decoration:none}
+.faq-answer a:hover{text-decoration:underline}
+
+@media(max-width:900px){
+  .faq-layout{grid-template-columns:1fr;gap:40px}
+  .faq-left{position:static}
+}
   </style>
 </head>
 <body>
@@ -2603,7 +2691,124 @@ button{font:inherit;border:0;background:none;cursor:none}
 
   </div>
 </section>
-<section id="faq"          class="ph sec-light2"><span class="ph-label">Phase 9 — FAQ</span></section>
+<section id="faq" class="sec-faq sec-light2 on-light">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- Left: sticky heading -->
+      <div class="faq-left" id="faqLeft">
+        <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span>FAQ</div>
+        <h2 class="sec-h2">Questions we<br>get asked a lot.</h2>
+        <p class="sec-sub">Everything you need to know before we get started. Still not sure? Just send a message.</p>
+        <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I%20have%20a%20question." target="_blank" rel="noopener" class="faq-cta-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Ask us directly on WhatsApp
+        </a>
+      </div>
+
+      <!-- Right: accordion -->
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a1">
+            How long does a typical project take?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a1" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">It depends on scope. A branding sprint can be completed in as little as 14 days. A full identity system with website and content takes 4–8 weeks. We offer clear timelines at the start of every project so there are no surprises.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a2">
+            How much does it cost to work with Brandsters?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a2" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">Pricing is scoped to your project. We offer fixed-price deliverables for most services so you know exactly what you're paying before we start. <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I'd%20like%20a%20quote." target="_blank" rel="noopener">Send us a brief</a> and we'll come back with a proposal within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a3">
+            Do you work with businesses outside Cape Town?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a3" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">Absolutely. We work with clients across South Africa and internationally. Most projects are handled fully remotely with no drop in quality — all we need is a clear brief and a good working relationship.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a4">
+            What do I need to get started?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a4" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">Not much. A quick overview of your business, what you're trying to achieve, and your timeline. We kick off every project with a discovery session to fill in the gaps. The more context you can give us upfront, the faster we move.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a5">
+            Can you handle the entire project from strategy to delivery?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a5" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">Yes — that's our sweet spot. We can take a project from positioning and strategy all the way through identity, website, content, photography, and launch. One team, one brief, full delivery.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a6">
+            Do you offer ongoing retainer packages?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a6" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">We do. For clients who need ongoing social media, content creation, or campaign support, we offer monthly retainer packages. These are scoped to your needs and reviewed every quarter to stay aligned with your growth goals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a7">
+            How do revisions work?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a7" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">Each project includes defined revision rounds — usually two to three rounds depending on the scope. We present work with clear rationale so feedback stays focused and productive. Revisions outside the agreed scope are quoted separately.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-a8">
+            What file formats will I receive?
+            <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body" id="faq-a8" role="region">
+            <div class="faq-body-inner">
+              <p class="faq-answer">You get everything: vector files (AI, EPS, SVG), high-res raster exports (PNG, JPG), web-optimised assets, and where relevant, editable source files. You own 100% of the work we produce for you.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /faq-list -->
+    </div>
+  </div>
+</section>
 <section id="contact"      class="ph sec-dark"><span class="ph-label">Phase 10 — Contact + Footer</span></section>
 
 <!-- ─── WhatsApp float ──────────────── -->
@@ -3049,6 +3254,16 @@ function initReveals(){
     y:50,opacity:0,duration:.85,ease:'power3.out',stagger:.1,
     scrollTrigger:{trigger:'#testiGrid',start:'top 85%',once:true}
   });
+
+  /* FAQ section */
+  gsap.from('#faqLeft',{
+    x:-50,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'#faqLeft',start:'top 82%',once:true}
+  });
+  gsap.from('.faq-item',{
+    y:30,opacity:0,duration:.7,ease:'power3.out',stagger:.07,
+    scrollTrigger:{trigger:'#faqList',start:'top 82%',once:true}
+  });
 }
 
 /* About stat counters */
@@ -3067,11 +3282,32 @@ function animAboutCounters(){
   });
 }
 
+/* ── FAQ accordion ────────────────────── */
+function initFaq(){
+  document.querySelectorAll('.faq-trigger').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const expanded=btn.getAttribute('aria-expanded')==='true';
+      // Close all
+      document.querySelectorAll('.faq-trigger').forEach(b=>{
+        b.setAttribute('aria-expanded','false');
+        document.getElementById(b.getAttribute('aria-controls'))
+          ?.classList.remove('open');
+      });
+      // Open clicked (unless it was already open)
+      if(!expanded){
+        btn.setAttribute('aria-expanded','true');
+        document.getElementById(btn.getAttribute('aria-controls'))
+          ?.classList.add('open');
+      }
+    });
+  });
+}
+
 /* ── Kick off ─────────────────────────── */
 if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',()=>{runHero();initReveals();});
+  document.addEventListener('DOMContentLoaded',()=>{runHero();initReveals();initFaq();});
 } else {
-  runHero();initReveals();
+  runHero();initReveals();initFaq();
 }
 
 })();
