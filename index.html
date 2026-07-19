@@ -1292,6 +1292,169 @@ button{font:inherit;border:0;background:none;cursor:none}
   .proc-content{padding:28px 24px}
   .proc-title{font-size:1.8rem}
 }
+
+/* ══════════════════════════════════════════════
+   ABOUT SECTION
+══════════════════════════════════════════════ */
+.sec-about{padding:132px 0 152px}
+
+/* Two-column layout */
+.about-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:72px;
+  align-items:center;
+}
+
+/* ── Left visual column ── */
+.about-visual-col{position:relative}
+
+/* Main creative card */
+.about-card{
+  position:relative;overflow:hidden;
+  border-radius:28px;
+  background:linear-gradient(145deg,#07091A 0%,#0d1433 55%,#0d1f4a 100%);
+  border:1px solid rgba(0,86,249,.14);
+  box-shadow:0 40px 100px -50px rgba(0,86,249,.22);
+  min-height:480px;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:44px;
+}
+
+/* Grid lines overlay */
+.about-card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,86,249,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,86,249,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+
+/* Ambient glows inside card */
+.about-card-glow{
+  position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px);
+}
+.about-card-glow-1{width:280px;height:280px;top:-60px;left:-60px;background:rgba(0,86,249,.22)}
+.about-card-glow-2{width:200px;height:200px;bottom:-40px;right:-30px;background:rgba(0,200,255,.14)}
+
+/* Large B mark in card */
+.about-b-mark{
+  position:absolute;top:36px;left:44px;
+  width:68px;height:68px;
+  filter:drop-shadow(0 0 24px rgba(0,86,249,.55));
+}
+
+/* Floating decorative rings */
+.about-ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(0,86,249,.12);
+  pointer-events:none;
+}
+.about-ring-1{width:220px;height:220px;top:-50px;right:-50px;animation:aboutRing 12s ease-in-out infinite}
+.about-ring-2{width:320px;height:320px;top:-100px;right:-100px;border-color:rgba(0,200,255,.06);animation:aboutRing 18s ease-in-out reverse infinite}
+@keyframes aboutRing{0%,100%{opacity:.6}50%{opacity:1}}
+
+/* Floating badge chips */
+.about-badge{
+  position:absolute;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 16px;border-radius:999px;
+  font-family:var(--f-d);font-size:.7rem;font-weight:700;
+  letter-spacing:.04em;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(12px);
+  color:rgba(255,255,255,.7);
+}
+.about-badge svg{width:14px;height:14px;flex-shrink:0}
+.ab-1{top:130px;right:28px;animation:abFloat 5s ease-in-out infinite}
+.ab-2{top:192px;right:50px;animation:abFloat 5s ease-in-out 1.8s infinite}
+@keyframes abFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* Card footer text */
+.about-card-label{
+  position:relative;z-index:1;
+  font-family:var(--f-d);font-size:clamp(1.7rem,2.6vw,2.4rem);
+  font-weight:800;letter-spacing:-.04em;color:#fff;line-height:1.1;
+  margin-bottom:14px;
+}
+.about-card-sub{
+  position:relative;z-index:1;
+  font-size:.82rem;color:rgba(255,255,255,.38);
+  letter-spacing:.04em;font-weight:600;
+  display:flex;align-items:center;gap:8px;
+}
+.about-card-sub::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--cyan);flex-shrink:0;
+}
+
+/* Stats row below the card */
+.about-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;margin-top:20px;
+  background:rgba(10,13,26,.08);
+  border-radius:16px;overflow:hidden;
+  border:1px solid rgba(10,13,26,.07);
+}
+.about-stat{
+  background:#fff;padding:24px 16px;text-align:center;
+  transition:background .3s var(--ease);
+}
+.about-stat:hover{background:rgba(0,86,249,.03)}
+.about-stat-num{
+  font-family:var(--f-d);font-size:clamp(1.6rem,2.5vw,2.2rem);
+  font-weight:800;letter-spacing:-.04em;
+  color:var(--blue);line-height:1;display:block;
+}
+.about-stat-label{
+  display:block;font-size:.62rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(10,13,26,.38);margin-top:6px;
+}
+
+/* ── Right copy column ── */
+.about-copy{padding:8px 0}
+.about-copy .sec-h2{margin-bottom:24px}
+.about-lead{
+  font-size:clamp(1rem,1.4vw,1.1rem);color:var(--light-muted);
+  line-height:1.85;margin-bottom:16px;
+}
+.about-strengths{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;
+}
+.about-strength{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 18px;border-radius:12px;
+  border:1px solid rgba(10,13,26,.09);
+  background:#fff;
+  font-family:var(--f-d);font-size:.8rem;font-weight:700;
+  color:var(--light-text);
+  box-shadow:0 2px 12px -6px rgba(0,0,0,.06);
+  transition:all .28s var(--ease);
+}
+.about-strength:hover{
+  border-color:rgba(0,86,249,.18);
+  box-shadow:0 8px 28px -12px rgba(0,86,249,.14);
+  transform:translateY(-2px);
+}
+.about-strength-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  flex-shrink:0;
+}
+.about-cta-row{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* Responsive */
+@media(max-width:1024px){
+  .about-layout{grid-template-columns:1fr;gap:48px}
+  .about-card{min-height:360px}
+  .about-stats{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:600px){
+  .about-stats{grid-template-columns:repeat(2,1fr)}
+  .ab-1,.ab-2{display:none}
+}
   </style>
 </head>
 <body>
@@ -1927,7 +2090,7 @@ button{font:inherit;border:0;background:none;cursor:none}
 
     <!-- View all CTA -->
     <div class="work-cta-row" id="workCta">
-      <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I'd%20love%20to%20see%20your%20full%20portfolio." target="_blank" rel="noopener" class="btn-primary mag-btn">
+      <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I'd%20love%20to%20see%20your%20full%20portfolio." target="_blank" rel="noopener" class="btn btn-p mag-btn">
         Request full portfolio
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
@@ -2083,7 +2246,115 @@ button{font:inherit;border:0;background:none;cursor:none}
     </div><!-- /process-timeline -->
   </div>
 </section>
-<section id="about"        class="ph sec-light"><span class="ph-label">Phase 7 — About / Team</span></section>
+<section id="about" class="sec-about sec-light on-light">
+  <div class="container">
+    <div class="about-layout" id="aboutLayout">
+
+      <!-- Left: visual column -->
+      <div class="about-visual-col">
+
+        <!-- Creative dark card -->
+        <div class="about-card" id="aboutCard">
+          <div class="about-card-glow about-card-glow-1" aria-hidden="true"></div>
+          <div class="about-card-glow about-card-glow-2" aria-hidden="true"></div>
+          <div class="about-ring about-ring-1" aria-hidden="true"></div>
+          <div class="about-ring about-ring-2" aria-hidden="true"></div>
+
+          <!-- B logomark -->
+          <div class="about-b-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ab-bg" x1="5%" y1="5%" x2="95%" y2="95%">
+                  <stop offset="0%" stop-color="#5ab6ff"/>
+                  <stop offset="40%" stop-color="#1a6bff"/>
+                  <stop offset="100%" stop-color="#0030cc"/>
+                </linearGradient>
+                <linearGradient id="ab-hi" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
+                  <stop offset="45%" stop-color="rgba(255,255,255,.08)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </linearGradient>
+                <clipPath id="ab-clip"><rect width="40" height="40" rx="10"/></clipPath>
+              </defs>
+              <rect width="40" height="40" rx="10" fill="url(#ab-bg)"/>
+              <rect width="40" height="21" clip-path="url(#ab-clip)" fill="url(#ab-hi)"/>
+              <path fill="white" opacity=".96" fill-rule="evenodd" d="
+                M9.5 7.5 L9.5 32.5 L23 32.5
+                C28.5 32.5 32.5 28.8 32.5 24
+                C32.5 20.8 30.6 18.3 27.5 17.2
+                C30 15.9 31.5 13.5 31.5 11
+                C31.5 7.8 28.2 7.5 23 7.5 Z
+                M13 11 L22.5 11 C25.2 11 27.3 12.4 27.3 14.6
+                C27.3 16.8 25.2 18.2 22.5 18.2 L13 18.2 Z
+                M13 21.2 L23.5 21.2 C26.6 21.2 28.5 22.8 28.5 25.5
+                C28.5 28.2 26.6 29.8 23.5 29.8 L13 29.8 Z
+              "/>
+            </svg>
+          </div>
+
+          <!-- Floating badge chips -->
+          <div class="about-badge ab-1" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Strategy-led
+          </div>
+          <div class="about-badge ab-2" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            Conversion-focused
+          </div>
+
+          <!-- Card footer -->
+          <div class="about-card-label">Cape Town<br>Creative Studio</div>
+          <div class="about-card-sub">Brandsters · Est. 2022</div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="about-stats" id="aboutStats">
+          <div class="about-stat">
+            <span class="about-stat-num" data-about-count="14" data-suffix="+">0</span>
+            <span class="about-stat-label">Day sprints</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-about-count="3" data-suffix="">0</span>
+            <span class="about-stat-label">Growth systems</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-about-count="98" data-suffix="%">0</span>
+            <span class="about-stat-label">Quality benchmark</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-about-count="24" data-suffix="h">0</span>
+            <span class="about-stat-label">Response target</span>
+          </div>
+        </div>
+
+      </div><!-- /about-visual-col -->
+
+      <!-- Right: copy column -->
+      <div class="about-copy" id="aboutCopy">
+        <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span>About Brandsters</div>
+        <h2 class="sec-h2">Strategy-led creative for people building the next version of their business.</h2>
+        <p class="about-lead">Brandsters blends the taste of a design studio with the urgency of a growth team. The work is polished, but the goal stays practical: help better customers understand you faster.</p>
+        <p class="about-lead">Every decision should make the brand easier to trust, easier to remember, and easier to buy from.</p>
+
+        <div class="about-strengths" aria-label="Brandsters strengths">
+          <span class="about-strength"><span class="about-strength-dot"></span>Positioning before decoration</span>
+          <span class="about-strength"><span class="about-strength-dot"></span>Conversion-led websites</span>
+          <span class="about-strength"><span class="about-strength-dot"></span>Reusable launch assets</span>
+          <span class="about-strength"><span class="about-strength-dot"></span>Content systems that scale</span>
+        </div>
+
+        <div class="about-cta-row">
+          <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I'd%20love%20to%20learn%20more%20about%20working%20with%20you." target="_blank" rel="noopener" class="btn btn-p mag-btn">
+            Work with us
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+          <a href="#work" class="btn btn-g">See our work</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <section id="testimonials" class="ph sec-dark2"><span class="ph-label">Phase 8 — Testimonials</span></section>
 <section id="faq"          class="ph sec-light2"><span class="ph-label">Phase 9 — FAQ</span></section>
 <section id="contact"      class="ph sec-dark"><span class="ph-label">Phase 10 — Contact + Footer</span></section>
@@ -2496,6 +2767,42 @@ function initReveals(){
   gsap.from('.proc-step',{
     y:60,opacity:0,duration:.9,ease:'power3.out',stagger:.14,
     scrollTrigger:{trigger:'#processTimeline',start:'top 82%',once:true}
+  });
+
+  /* About section */
+  gsap.from('#aboutCard',{
+    x:-60,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'#aboutLayout',start:'top 82%',once:true}
+  });
+  gsap.from('#aboutStats',{
+    y:30,opacity:0,duration:.85,ease:'power3.out',
+    scrollTrigger:{trigger:'#aboutStats',start:'top 88%',once:true,
+      onEnter(){animAboutCounters()}
+    }
+  });
+  gsap.from('#aboutCopy',{
+    x:60,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'#aboutLayout',start:'top 82%',once:true}
+  });
+  gsap.from('.about-strength',{
+    y:20,opacity:0,duration:.7,ease:'power3.out',stagger:.07,
+    scrollTrigger:{trigger:'.about-strengths',start:'top 88%',once:true}
+  });
+}
+
+/* About stat counters */
+function animAboutCounters(){
+  document.querySelectorAll('[data-about-count]').forEach(el=>{
+    const target=+el.dataset.aboutCount;
+    const suffix=el.dataset.suffix||'';
+    const dur=1400;const start=performance.now();
+    const tick=now=>{
+      const p=Math.min((now-start)/dur,1);
+      const ease=1-Math.pow(1-p,3);
+      el.textContent=Math.round(ease*target)+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   });
 }
 
