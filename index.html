@@ -680,7 +680,104 @@ button{font:inherit;border:0;background:none;cursor:none}
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
   .h-eyebrow,.hero-sub,.hero-btns,.hero-stats,.scroll-ind,.hero-badges,.brand-display,.hero-mark{opacity:1!important;transform:none!important}
   .word-i,.bd-l{transform:none!important}
+  .clients-trust{opacity:1!important;transform:none!important}
 }
+
+/* ══════════════════════════════════════════════
+   SECTION COMMONS
+══════════════════════════════════════════════ */
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.on-light .sec-eyebrow{color:var(--blue)}
+.on-dark  .sec-eyebrow{color:var(--cyan)}
+.sec-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.sec-h2{
+  font-family:var(--f-d);font-size:clamp(2.2rem,4vw,4rem);
+  font-weight:800;letter-spacing:-.04em;line-height:1.06;margin-bottom:20px;
+}
+.on-light .sec-h2{color:var(--light-text)}
+.on-dark  .sec-h2{color:#fff}
+.on-light .sec-sub{color:var(--light-muted)}
+.on-dark  .sec-sub{color:rgba(255,255,255,.5)}
+.sec-sub{font-size:clamp(.96rem,1.3vw,1.08rem);line-height:1.8}
+
+/* ══════════════════════════════════════════════
+   CLIENTS SECTION
+══════════════════════════════════════════════ */
+.sec-clients{padding:120px 0 130px;overflow:hidden}
+
+.clients-head{text-align:center;margin-bottom:68px}
+.clients-head .sec-sub{margin-inline:auto;max-width:520px}
+
+/* Dual marquee */
+.marquee-outer{
+  position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+}
+.marquee-row{display:flex;gap:14px;width:max-content;padding:4px 0}
+.marquee-row+.marquee-row{margin-top:14px}
+.marquee-row.left{ animation:marqLeft 38s linear infinite}
+.marquee-row.right{animation:marqRight 44s linear infinite}
+.marquee-outer:hover .marquee-row{animation-play-state:paused}
+@keyframes marqLeft { to{transform:translateX(-50%)} }
+@keyframes marqRight{ from{transform:translateX(-50%)} to{transform:translateX(0)} }
+
+/* Client pill */
+.c-pill{
+  flex-shrink:0;display:flex;align-items:center;gap:12px;
+  padding:14px 22px 14px 14px;border-radius:999px;
+  background:#fff;border:1px solid rgba(10,13,26,.07);
+  box-shadow:0 2px 18px -8px rgba(0,0,0,.08);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease);
+  cursor:default;white-space:nowrap;
+}
+.c-pill:hover{
+  border-color:rgba(0,86,249,.18);
+  box-shadow:0 10px 44px -14px rgba(0,86,249,.16);
+  transform:translateY(-3px);
+}
+.c-initial{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  font-family:var(--f-d);font-size:.84rem;font-weight:800;
+  color:#fff;flex-shrink:0;letter-spacing:0;
+}
+.ci-1{background:linear-gradient(135deg,var(--blue),var(--blue-l))}
+.ci-2{background:linear-gradient(135deg,#10b981,#059669)}
+.ci-3{background:linear-gradient(135deg,var(--purple),#9b5de5)}
+.ci-4{background:linear-gradient(135deg,var(--cyan),var(--blue))}
+.ci-5{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.ci-6{background:linear-gradient(135deg,#10b981,#1d9bd1)}
+.ci-7{background:linear-gradient(135deg,#eab308,#22c55e)}
+.c-name{
+  font-family:var(--f-d);font-size:.9rem;font-weight:700;
+  color:var(--light-text);letter-spacing:-.01em;
+}
+.c-sector{
+  font-size:.62rem;font-weight:700;color:rgba(10,13,26,.3);
+  letter-spacing:.08em;text-transform:uppercase;margin-top:2px;
+}
+
+/* Trust strip */
+.clients-trust{
+  display:flex;align-items:center;justify-content:center;
+  gap:44px;margin-top:72px;flex-wrap:wrap;
+  opacity:0;transform:translateY(20px);
+}
+.ct-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:.7rem;font-weight:800;
+  color:rgba(10,13,26,.35);letter-spacing:.1em;text-transform:uppercase;
+}
+.ct-num{
+  font-family:var(--f-d);font-size:1.1rem;font-weight:800;
+  color:var(--light-text);letter-spacing:-.02em;
+}
+.ct-sep{width:1px;height:28px;background:rgba(10,13,26,.08)}
   </style>
 </head>
 <body>
@@ -927,7 +1024,71 @@ button{font:inherit;border:0;background:none;cursor:none}
 </section>
 
 <!-- ─── Placeholder sections (alternating rhythm) ─── -->
-<section id="clients"      class="ph sec-light"><span class="ph-label">Phase 3 — Clients</span></section>
+<section id="clients" class="sec-clients sec-light on-light" aria-labelledby="clients-h2">
+
+  <div class="wrap">
+    <div class="clients-head" id="clientsHead">
+      <div class="sec-eyebrow"><span class="sec-eyebrow-dot" aria-hidden="true"></span>Clients</div>
+      <h2 class="sec-h2" id="clients-h2">Trusted by leading brands.</h2>
+      <p class="sec-sub">Startups, scaleups, and category leaders across health, fintech, real estate, and energy trust Brandsters with their brand and growth.</p>
+    </div>
+  </div>
+
+  <!-- Dual infinite marquee -->
+  <div class="marquee-outer">
+
+    <!-- Row 1 — scrolls left -->
+    <div class="marquee-row left" aria-hidden="true">
+      <div class="c-pill"><span class="c-initial ci-1">A</span><span><span class="c-name">Anthem</span><span class="c-sector">Entertainment</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-2">B</span><span><span class="c-name">Biovac</span><span class="c-sector">Health</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-3">C</span><span><span class="c-name">Carry1st</span><span class="c-sector">Gaming · Tech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-4">E</span><span><span class="c-name">Ezeebit</span><span class="c-sector">Fintech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-5">F</span><span><span class="c-name">Faro</span><span class="c-sector">Technology</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-6">L</span><span><span class="c-name">Live Real Estate</span><span class="c-sector">Real Estate</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-7">Z</span><span><span class="c-name">Zimi Charge</span><span class="c-sector">Energy</span></span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="c-pill"><span class="c-initial ci-1">A</span><span><span class="c-name">Anthem</span><span class="c-sector">Entertainment</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-2">B</span><span><span class="c-name">Biovac</span><span class="c-sector">Health</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-3">C</span><span><span class="c-name">Carry1st</span><span class="c-sector">Gaming · Tech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-4">E</span><span><span class="c-name">Ezeebit</span><span class="c-sector">Fintech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-5">F</span><span><span class="c-name">Faro</span><span class="c-sector">Technology</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-6">L</span><span><span class="c-name">Live Real Estate</span><span class="c-sector">Real Estate</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-7">Z</span><span><span class="c-name">Zimi Charge</span><span class="c-sector">Energy</span></span></div>
+    </div>
+
+    <!-- Row 2 — scrolls right (reversed order) -->
+    <div class="marquee-row right" aria-hidden="true">
+      <div class="c-pill"><span class="c-initial ci-7">Z</span><span><span class="c-name">Zimi Charge</span><span class="c-sector">Energy</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-6">L</span><span><span class="c-name">Live Real Estate</span><span class="c-sector">Real Estate</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-5">F</span><span><span class="c-name">Faro</span><span class="c-sector">Technology</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-4">E</span><span><span class="c-name">Ezeebit</span><span class="c-sector">Fintech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-3">C</span><span><span class="c-name">Carry1st</span><span class="c-sector">Gaming · Tech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-2">B</span><span><span class="c-name">Biovac</span><span class="c-sector">Health</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-1">A</span><span><span class="c-name">Anthem</span><span class="c-sector">Entertainment</span></span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="c-pill"><span class="c-initial ci-7">Z</span><span><span class="c-name">Zimi Charge</span><span class="c-sector">Energy</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-6">L</span><span><span class="c-name">Live Real Estate</span><span class="c-sector">Real Estate</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-5">F</span><span><span class="c-name">Faro</span><span class="c-sector">Technology</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-4">E</span><span><span class="c-name">Ezeebit</span><span class="c-sector">Fintech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-3">C</span><span><span class="c-name">Carry1st</span><span class="c-sector">Gaming · Tech</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-2">B</span><span><span class="c-name">Biovac</span><span class="c-sector">Health</span></span></div>
+      <div class="c-pill"><span class="c-initial ci-1">A</span><span><span class="c-name">Anthem</span><span class="c-sector">Entertainment</span></span></div>
+    </div>
+
+  </div>
+
+  <!-- Trust strip -->
+  <div class="wrap">
+    <div class="clients-trust" id="clientsTrust">
+      <div class="ct-item"><span class="ct-num">7</span>Brands served</div>
+      <div class="ct-sep" aria-hidden="true"></div>
+      <div class="ct-item"><span class="ct-num">4</span>Industries</div>
+      <div class="ct-sep" aria-hidden="true"></div>
+      <div class="ct-item">Cape Town, South Africa</div>
+    </div>
+  </div>
+
+</section>
 <section id="services"     class="ph sec-dark2"><span class="ph-label">Phase 4 — Services</span></section>
 <section id="work"         class="ph sec-light2"><span class="ph-label">Phase 5 — Work</span></section>
 <section id="process"      class="ph sec-dark"><span class="ph-label">Phase 6 — Process</span></section>
@@ -1292,11 +1453,28 @@ function animCounters(){
   });
 }
 
+/* ══════════════════════════════════════════
+   SCROLL REVEALS
+══════════════════════════════════════════ */
+function initReveals(){
+  if(!G) return;
+
+  /* Clients section */
+  gsap.from('#clientsHead',{
+    y:56,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'#clientsHead',start:'top 82%',once:true}
+  });
+  gsap.to('#clientsTrust',{
+    y:0,opacity:1,duration:1,ease:'power3.out',
+    scrollTrigger:{trigger:'#clientsTrust',start:'top 90%',once:true}
+  });
+}
+
 /* ── Kick off ─────────────────────────── */
 if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',runHero);
+  document.addEventListener('DOMContentLoaded',()=>{runHero();initReveals();});
 } else {
-  runHero();
+  runHero();initReveals();
 }
 
 })();
