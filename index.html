@@ -1704,6 +1704,229 @@ button{font:inherit;border:0;background:none;cursor:none}
   .faq-layout{grid-template-columns:1fr;gap:40px}
   .faq-left{position:static}
 }
+
+/* ══════════════════════════════════════════════
+   CONTACT SECTION
+══════════════════════════════════════════════ */
+.sec-contact{
+  padding:132px 0 0;
+  position:relative;overflow:hidden;
+}
+
+/* Big cinematic CTA text */
+.contact-hero{
+  text-align:center;
+  padding-bottom:96px;
+  position:relative;z-index:1;
+}
+.contact-over{
+  font-family:var(--f-d);
+  font-size:clamp(2.6rem,8vw,7.5rem);
+  font-weight:800;letter-spacing:-.05em;line-height:.95;
+  color:#fff;margin-bottom:36px;
+}
+.contact-over span{
+  background:linear-gradient(135deg,var(--blue-l),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.contact-sub-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;flex-wrap:wrap;margin-bottom:52px;
+}
+.contact-sub-text{
+  color:rgba(255,255,255,.44);font-size:clamp(.96rem,1.4vw,1.08rem);
+  line-height:1.7;max-width:440px;text-align:center;
+}
+.contact-btns{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;flex-wrap:wrap;
+}
+
+/* Divider */
+.contact-divider{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08) 30%,rgba(255,255,255,.08) 70%,transparent);
+  margin-bottom:0;
+}
+
+/* Info strip above form */
+.contact-info-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:48px;padding:40px 0;flex-wrap:wrap;
+}
+.cis-item{
+  display:flex;align-items:center;gap:12px;
+  color:rgba(255,255,255,.5);font-size:.88rem;
+}
+.cis-item svg{
+  width:18px;height:18px;color:var(--cyan);flex-shrink:0;
+}
+.cis-label{color:rgba(255,255,255,.32);font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;}
+.cis-val{color:rgba(255,255,255,.7);font-weight:600;}
+
+/* Contact form card */
+.contact-form-wrap{
+  max-width:760px;margin-inline:auto;
+  padding:56px 64px;border-radius:28px 28px 0 0;
+  background:rgba(255,255,255,.032);
+  border:1px solid rgba(255,255,255,.07);
+  border-bottom:none;
+  backdrop-filter:blur(16px);
+  position:relative;
+}
+.contact-form-wrap::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(0,86,249,.07),transparent 55%);
+  pointer-events:none;
+}
+.contact-form-head{
+  text-align:center;margin-bottom:44px;
+}
+.contact-form-head h3{
+  font-family:var(--f-d);font-size:clamp(1.5rem,2.4vw,2rem);
+  font-weight:800;letter-spacing:-.04em;color:#fff;
+  margin-bottom:10px;
+}
+.contact-form-head p{
+  color:rgba(255,255,255,.4);font-size:.92rem;line-height:1.7;
+}
+
+/* Form fields */
+.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cf-full{grid-column:1/-1}
+.cf-field{display:flex;flex-direction:column;gap:8px}
+.cf-label{
+  font-family:var(--f-d);font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.38);
+}
+.cf-input,.cf-textarea{
+  width:100%;padding:14px 18px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  color:#fff;font-family:var(--f-b);font-size:.96rem;
+  transition:border-color .28s var(--ease),background .28s var(--ease),box-shadow .28s var(--ease);
+  outline:none;
+}
+.cf-input::placeholder,.cf-textarea::placeholder{color:rgba(255,255,255,.2)}
+.cf-input:focus,.cf-textarea:focus{
+  border-color:rgba(0,86,249,.5);
+  background:rgba(0,86,249,.06);
+  box-shadow:0 0 0 3px rgba(0,86,249,.12);
+}
+.cf-textarea{resize:vertical;min-height:130px;line-height:1.7}
+.cf-submit{
+  width:100%;margin-top:8px;
+  padding:17px;border-radius:14px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-l));
+  color:#fff;font-family:var(--f-d);font-size:1rem;font-weight:700;
+  letter-spacing:-.01em;border:none;cursor:pointer;
+  box-shadow:0 12px 48px -14px rgba(0,86,249,.6),inset 0 1px 0 rgba(255,255,255,.18);
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.cf-submit:hover{
+  transform:translateY(-2px);
+  box-shadow:0 20px 60px -10px rgba(0,86,249,.65),inset 0 1px 0 rgba(255,255,255,.18);
+}
+.cf-submit svg{width:16px;height:16px}
+.cf-note{
+  text-align:center;margin-top:16px;
+  font-size:.72rem;color:rgba(255,255,255,.22);line-height:1.6;
+}
+.cf-note a{color:rgba(255,255,255,.4);text-decoration:none}
+.cf-note a:hover{color:rgba(255,255,255,.7)}
+
+@media(max-width:760px){
+  .contact-form-wrap{padding:36px 28px}
+  .cf-grid{grid-template-columns:1fr}
+  .contact-info-strip{gap:24px}
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+.site-footer{
+  background:#000509;
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:72px 0 0;
+}
+
+/* Footer grid */
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.8fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:64px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.footer-brand p{
+  color:rgba(255,255,255,.35);font-size:.92rem;line-height:1.8;
+  margin-top:20px;max-width:280px;
+}
+.footer-socials{
+  display:flex;gap:10px;margin-top:24px;
+}
+.footer-social{
+  width:38px;height:38px;border-radius:10px;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.4);
+  transition:all .28s var(--ease);
+}
+.footer-social:hover{
+  border-color:var(--blue);color:var(--blue);
+  background:rgba(0,86,249,.08);
+}
+.footer-social svg{width:15px;height:15px}
+
+.footer-col h4{
+  font-family:var(--f-d);font-size:.72rem;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);margin-bottom:20px;
+}
+.footer-col a{
+  display:block;color:rgba(255,255,255,.5);font-size:.9rem;
+  text-decoration:none;margin-bottom:12px;
+  transition:color .22s var(--ease);
+}
+.footer-col a:hover{color:#fff}
+
+/* Footer bottom */
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0;gap:16px;flex-wrap:wrap;
+}
+.footer-copy{
+  font-size:.78rem;color:rgba(255,255,255,.22);
+}
+.footer-tagline{
+  font-family:var(--f-d);font-size:.78rem;font-weight:700;
+  letter-spacing:.06em;
+  background:linear-gradient(90deg,var(--blue-l),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.footer-back-top{
+  width:40px;height:40px;border-radius:10px;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.4);
+  transition:all .28s var(--ease);cursor:pointer;background:none;
+}
+.footer-back-top:hover{border-color:var(--blue);color:var(--blue)}
+.footer-back-top svg{width:16px;height:16px}
+
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr;row-gap:40px}
+  .footer-brand{grid-column:1/-1}
+}
+@media(max-width:500px){
+  .footer-grid{grid-template-columns:1fr}
+  .footer-brand{grid-column:auto}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
   </style>
 </head>
 <body>
@@ -2809,7 +3032,179 @@ button{font:inherit;border:0;background:none;cursor:none}
     </div>
   </div>
 </section>
-<section id="contact"      class="ph sec-dark"><span class="ph-label">Phase 10 — Contact + Footer</span></section>
+<section id="contact" class="sec-contact sec-dark on-dark">
+  <div class="container">
+
+    <!-- Big cinematic CTA -->
+    <div class="contact-hero" id="contactHero">
+      <h2 class="contact-over">Ready to make the<br><span>brand pull its weight?</span></h2>
+      <p class="contact-sub-text">Tell us what you're building, where growth feels stuck, and what a successful next 90 days would look like.</p>
+      <div class="contact-btns">
+        <a href="#contactForm" class="btn btn-p mag-btn">
+          Start your project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+        <a href="mailto:brandsters.cpt@gmail.com?subject=Brandsters%20project%20inquiry" class="btn btn-g">
+          brandsters.cpt@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <!-- Info strip -->
+    <div class="contact-divider"></div>
+    <div class="contact-info-strip" id="contactInfo">
+      <div class="cis-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.9 1.16 2 2 0 012.88 0h3a2 2 0 012 1.72c.128.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.572 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <div>
+          <div class="cis-label">WhatsApp</div>
+          <div class="cis-val">+27 76 147 0560</div>
+        </div>
+      </div>
+      <div class="cis-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div>
+          <div class="cis-label">Email</div>
+          <div class="cis-val">brandsters.cpt@gmail.com</div>
+        </div>
+      </div>
+      <div class="cis-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div class="cis-label">Location</div>
+          <div class="cis-val">Cape Town, South Africa</div>
+        </div>
+      </div>
+      <div class="cis-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <div class="cis-label">Response</div>
+          <div class="cis-val">Within 24 hours</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-form-wrap" id="contactForm">
+      <div class="contact-form-head">
+        <h3>Send us a brief</h3>
+        <p>Share what you're working on and we'll come back with a proposal.</p>
+      </div>
+      <form id="contactFormEl" novalidate>
+        <div class="cf-grid">
+          <div class="cf-field">
+            <label class="cf-label" for="cf-name">Your name</label>
+            <input class="cf-input" id="cf-name" name="name" autocomplete="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-email">Email address</label>
+            <input class="cf-input" id="cf-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required>
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-company">Company / brand</label>
+            <input class="cf-input" id="cf-company" name="company" placeholder="Optional">
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-budget">Rough budget</label>
+            <input class="cf-input" id="cf-budget" name="budget" placeholder="e.g. R5 000 – R15 000">
+          </div>
+          <div class="cf-field cf-full">
+            <label class="cf-label" for="cf-message">What should we build?</label>
+            <textarea class="cf-textarea" id="cf-message" name="message" placeholder="Tell us about your project, goals, and timeline…" required></textarea>
+          </div>
+        </div>
+        <button class="cf-submit mag-btn" type="submit">
+          Send brief
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </button>
+        <p class="cf-note">By submitting you agree to be contacted about your project. No spam, ever. Or <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I'd%20like%20to%20start%20a%20project." target="_blank" rel="noopener">message us on WhatsApp</a> directly.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="site-footer on-dark">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Brand col -->
+      <div class="footer-brand">
+        <!-- Wordmark inline SVG -->
+        <svg height="28" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-label="Brandsters">
+          <defs>
+            <linearGradient id="ft-bg" x1="5%" y1="5%" x2="95%" y2="95%">
+              <stop offset="0%" stop-color="#5ab6ff"/>
+              <stop offset="40%" stop-color="#1a6bff"/>
+              <stop offset="100%" stop-color="#0030cc"/>
+            </linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="9" fill="url(#ft-bg)"/>
+          <path fill="white" opacity=".96" fill-rule="evenodd" d="
+            M9.5 7.5 L9.5 32.5 L23 32.5 C28.5 32.5 32.5 28.8 32.5 24
+            C32.5 20.8 30.6 18.3 27.5 17.2 C30 15.9 31.5 13.5 31.5 11
+            C31.5 7.8 28.2 7.5 23 7.5 Z
+            M13 11 L22.5 11 C25.2 11 27.3 12.4 27.3 14.6
+            C27.3 16.8 25.2 18.2 22.5 18.2 L13 18.2 Z
+            M13 21.2 L23.5 21.2 C26.6 21.2 28.5 22.8 28.5 25.5
+            C28.5 28.2 26.6 29.8 23.5 29.8 L13 29.8 Z
+          "/>
+          <text x="50" y="28" font-family="'Sora',sans-serif" font-size="22" font-weight="800"
+            letter-spacing="-0.04em" fill="white">randsters</text>
+        </svg>
+        <p>Brands, websites, and growth campaigns for teams ready to look sharper and sell smarter.</p>
+        <div class="footer-socials">
+          <a class="footer-social" href="https://wa.me/27761470560" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a class="footer-social" href="mailto:brandsters.cpt@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Studio links -->
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+      </div>
+
+      <!-- Contact links -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:brandsters.cpt@gmail.com">Email us</a>
+        <a href="https://wa.me/27761470560?text=Hi%20Brandsters%2C%20I'd%20like%20to%20start%20a%20project." target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#contact">Book a call</a>
+      </div>
+
+      <!-- Services links -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Brand identity</a>
+        <a href="#services">Website builds</a>
+        <a href="#services">Social media</a>
+        <a href="#services">Photography</a>
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footerYear"></span> Brandsters. All rights reserved.</span>
+      <span class="footer-tagline">Your growth, our obsession.</span>
+      <button class="footer-back-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+      </button>
+    </div>
+
+  </div>
+</footer>
 
 <!-- ─── WhatsApp float ──────────────── -->
 <a class="wa-float" href="https://wa.me/27745886560?text=Hi%20Brandsters%20i%20would%20like%20to%20start%20a%20project."
@@ -3264,6 +3659,20 @@ function initReveals(){
     y:30,opacity:0,duration:.7,ease:'power3.out',stagger:.07,
     scrollTrigger:{trigger:'#faqList',start:'top 82%',once:true}
   });
+
+  /* Contact section */
+  gsap.from('#contactHero',{
+    y:60,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'#contactHero',start:'top 82%',once:true}
+  });
+  gsap.from('#contactInfo',{
+    y:30,opacity:0,duration:.85,ease:'power3.out',
+    scrollTrigger:{trigger:'#contactInfo',start:'top 88%',once:true}
+  });
+  gsap.from('#contactForm',{
+    y:50,opacity:0,duration:1,ease:'power3.out',
+    scrollTrigger:{trigger:'#contactForm',start:'top 85%',once:true}
+  });
 }
 
 /* About stat counters */
@@ -3281,6 +3690,33 @@ function animAboutCounters(){
     requestAnimationFrame(tick);
   });
 }
+
+/* ── Contact reveals ──────────────────── */
+(function initContact(){
+  // Year
+  const yr=document.getElementById('footerYear');
+  if(yr) yr.textContent=new Date().getFullYear();
+
+  // Form → mailto
+  const form=document.getElementById('contactFormEl');
+  if(form){
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const n=form.querySelector('#cf-name')?.value||'';
+      const em=form.querySelector('#cf-email')?.value||'';
+      const co=form.querySelector('#cf-company')?.value||'';
+      const bud=form.querySelector('#cf-budget')?.value||'';
+      const msg=form.querySelector('#cf-message')?.value||'';
+      const body=`Name: ${n}\nEmail: ${em}\nCompany: ${co}\nBudget: ${bud}\n\nProject:\n${msg}`;
+      window.location.href=`mailto:brandsters.cpt@gmail.com?subject=Brandsters%20project%20inquiry&body=${encodeURIComponent(body)}`;
+    });
+  }
+
+  // Back to top
+  document.getElementById('backToTop')?.addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
 
 /* ── FAQ accordion ────────────────────── */
 function initFaq(){
