@@ -1455,6 +1455,167 @@ button{font:inherit;border:0;background:none;cursor:none}
   .about-stats{grid-template-columns:repeat(2,1fr)}
   .ab-1,.ab-2{display:none}
 }
+
+/* ══════════════════════════════════════════════
+   TESTIMONIALS SECTION
+══════════════════════════════════════════════ */
+.sec-testimonials{padding:132px 0 152px;position:relative;overflow:hidden}
+
+/* Noise overlay */
+.sec-testimonials::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  opacity:.35;
+}
+
+/* Top ambient glow */
+.testi-glow{
+  position:absolute;border-radius:50%;pointer-events:none;filter:blur(120px);opacity:.12;
+}
+.testi-glow-1{width:600px;height:300px;top:-80px;left:50%;transform:translateX(-50%);background:var(--blue)}
+.testi-glow-2{width:300px;height:300px;bottom:0;right:-80px;background:var(--purple);opacity:.1}
+
+/* Section head */
+.testi-head{text-align:center;margin-bottom:72px}
+.testi-head .sec-sub{max-width:500px;margin-inline:auto;margin-top:16px}
+
+/* Rating strip */
+.testi-rating{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:18px;
+}
+.testi-stars{display:flex;gap:3px}
+.testi-star{
+  width:16px;height:16px;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.testi-rating-text{
+  font-family:var(--f-d);font-size:.72rem;font-weight:700;
+  letter-spacing:.06em;color:rgba(255,255,255,.38);text-transform:uppercase;
+}
+
+/* Grid layout: featured top + 4-card grid */
+.testi-featured{
+  margin-bottom:20px;
+  position:relative;overflow:hidden;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.025);
+  backdrop-filter:blur(12px);
+  padding:52px 60px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:48px;
+  align-items:center;
+}
+.testi-featured::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(0,86,249,.08),transparent 60%);
+  pointer-events:none;
+}
+.testi-q-mark{
+  font-family:var(--f-d);font-size:6rem;line-height:.8;
+  font-weight:800;color:var(--blue);opacity:.3;
+  position:absolute;top:28px;left:44px;
+  pointer-events:none;user-select:none;
+}
+.testi-quote{
+  position:relative;z-index:1;
+  font-family:var(--f-d);
+  font-size:clamp(1.25rem,2.2vw,1.75rem);
+  font-weight:600;letter-spacing:-.02em;
+  color:#fff;line-height:1.5;
+  padding-left:20px;
+}
+.testi-meta{
+  position:relative;z-index:1;
+  flex-shrink:0;text-align:right;
+  min-width:180px;
+}
+.testi-name{
+  font-family:var(--f-d);font-size:.9rem;font-weight:700;
+  color:#fff;letter-spacing:-.01em;
+}
+.testi-company{
+  font-size:.74rem;color:rgba(255,255,255,.38);
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  margin-top:4px;
+}
+.testi-service-tag{
+  display:inline-flex;margin-top:10px;
+  padding:6px 12px;border-radius:999px;
+  font-family:var(--f-d);font-size:.62rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid rgba(0,86,249,.28);
+  color:var(--blue-l);background:rgba(0,86,249,.08);
+}
+
+/* 4-card grid */
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.testi-card{
+  position:relative;overflow:hidden;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02);
+  padding:36px;
+  display:flex;flex-direction:column;gap:20px;
+  transition:border-color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease);
+}
+.testi-card:hover{
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 24px 64px -32px rgba(0,0,0,.5);
+  transform:translateY(-4px);
+}
+.testi-card::before{
+  content:'"';
+  position:absolute;top:20px;right:28px;
+  font-family:var(--f-d);font-size:5rem;line-height:1;
+  font-weight:800;color:rgba(255,255,255,.04);
+  pointer-events:none;user-select:none;
+}
+.testi-card-quote{
+  font-size:clamp(.9rem,1.2vw,1rem);
+  color:rgba(255,255,255,.62);
+  line-height:1.82;flex:1;
+}
+.testi-card-footer{
+  display:flex;align-items:center;gap:12px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.testi-avatar{
+  width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;
+  font-family:var(--f-d);font-size:.78rem;font-weight:800;
+  color:#fff;flex-shrink:0;
+}
+.ta-1{background:linear-gradient(135deg,var(--blue),var(--blue-l))}
+.ta-2{background:linear-gradient(135deg,#10b981,#059669)}
+.ta-3{background:linear-gradient(135deg,var(--purple),#9b5de5)}
+.ta-4{background:linear-gradient(135deg,var(--cyan),var(--blue))}
+.testi-card-name{
+  font-family:var(--f-d);font-size:.84rem;font-weight:700;
+  color:#fff;letter-spacing:-.01em;
+}
+.testi-card-co{
+  font-size:.65rem;color:rgba(255,255,255,.3);
+  font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .testi-featured{grid-template-columns:1fr;padding:36px}
+  .testi-meta{text-align:left;min-width:0}
+}
+@media(max-width:600px){
+  .testi-grid{grid-template-columns:1fr}
+  .testi-featured{padding:28px}
+}
   </style>
 </head>
 <body>
@@ -2355,7 +2516,93 @@ button{font:inherit;border:0;background:none;cursor:none}
     </div>
   </div>
 </section>
-<section id="testimonials" class="ph sec-dark2"><span class="ph-label">Phase 8 — Testimonials</span></section>
+<section id="testimonials" class="sec-testimonials sec-dark2 on-dark">
+  <div class="testi-glow testi-glow-1" aria-hidden="true"></div>
+  <div class="testi-glow testi-glow-2" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <!-- Head -->
+    <div class="testi-head" id="testiHead">
+      <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span>Client Voices</div>
+      <h2 class="sec-h2">Trusted by brands that<br>demand real results.</h2>
+      <p class="sec-sub">What our clients say about working with Brandsters — from first brief to final delivery.</p>
+      <div class="testi-rating" aria-label="Average rating 5 out of 5">
+        <div class="testi-stars" aria-hidden="true">
+          <div class="testi-star"></div>
+          <div class="testi-star"></div>
+          <div class="testi-star"></div>
+          <div class="testi-star"></div>
+          <div class="testi-star"></div>
+        </div>
+        <span class="testi-rating-text">5.0 · 30+ projects delivered</span>
+      </div>
+    </div>
+
+    <!-- Featured testimonial -->
+    <div class="testi-featured" id="testiFeatured">
+      <div class="testi-q-mark" aria-hidden="true">"</div>
+      <blockquote class="testi-quote">
+        "Brandsters gave us more than a rebrand — they gave us a clear reason to be chosen over competitors. The identity system, the messaging, the photography: everything clicked into place."
+      </blockquote>
+      <div class="testi-meta">
+        <div class="testi-name">Mohammed A.</div>
+        <div class="testi-company">Shashlik Restaurant</div>
+        <span class="testi-service-tag">Branding · Photography</span>
+      </div>
+    </div>
+
+    <!-- 4-card grid -->
+    <div class="testi-grid" id="testiGrid">
+
+      <div class="testi-card">
+        <p class="testi-card-quote">"The packaging concept they delivered for GoodRoots was exactly what we needed — bold on shelf, clean in digital. They understood the product and the customer immediately."</p>
+        <div class="testi-card-footer">
+          <div class="testi-avatar ta-2">GR</div>
+          <div>
+            <div class="testi-card-name">Lena M.</div>
+            <div class="testi-card-co">GoodRoots · Packaging</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-card-quote">"Our product shoot came back sharper than we imagined. The Spektra campaign assets went straight from Brandsters to our launch — zero reshoots, zero revisions."</p>
+        <div class="testi-card-footer">
+          <div class="testi-avatar ta-1">SP</div>
+          <div>
+            <div class="testi-card-name">Arjun P.</div>
+            <div class="testi-card-co">Spektra · Product Photography</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-card-quote">"The Seawave company profile came back polished enough to send straight to investors. First impressions matter — Brandsters made ours count."</p>
+        <div class="testi-card-footer">
+          <div class="testi-avatar ta-4">SW</div>
+          <div>
+            <div class="testi-card-name">Sara K.</div>
+            <div class="testi-card-co">Seawave · Company Profile</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-card-quote">"The social content system they built for Sdrah keeps running months after handoff. That's the difference between a freelancer and a growth partner."</p>
+        <div class="testi-card-footer">
+          <div class="testi-avatar ta-3">SD</div>
+          <div>
+            <div class="testi-card-name">Tariq J.</div>
+            <div class="testi-card-co">Sdrah · Social Media</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /testi-grid -->
+
+  </div>
+</section>
 <section id="faq"          class="ph sec-light2"><span class="ph-label">Phase 9 — FAQ</span></section>
 <section id="contact"      class="ph sec-dark"><span class="ph-label">Phase 10 — Contact + Footer</span></section>
 
@@ -2787,6 +3034,20 @@ function initReveals(){
   gsap.from('.about-strength',{
     y:20,opacity:0,duration:.7,ease:'power3.out',stagger:.07,
     scrollTrigger:{trigger:'.about-strengths',start:'top 88%',once:true}
+  });
+
+  /* Testimonials section */
+  gsap.from('#testiHead',{
+    y:50,opacity:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'#testiHead',start:'top 82%',once:true}
+  });
+  gsap.from('#testiFeatured',{
+    y:50,opacity:0,duration:1,ease:'power3.out',
+    scrollTrigger:{trigger:'#testiFeatured',start:'top 85%',once:true}
+  });
+  gsap.from('.testi-card',{
+    y:50,opacity:0,duration:.85,ease:'power3.out',stagger:.1,
+    scrollTrigger:{trigger:'#testiGrid',start:'top 85%',once:true}
   });
 }
 
